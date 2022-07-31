@@ -19,3 +19,8 @@ docker-compose up -d
 ````
 yarn start:dev
 ````
+7. Ejecutar seed para cargar datos de pruena
+````
+http://localhost:3000/api/seed
+````
+
