@@ -9,6 +9,12 @@ export class ProductImage {
   @Column('text')
   url: string;
 
-  @ManyToOne(() => Product, (product) => product.images)
+  // eslint-disable-next-line prettier/prettier
+  @ManyToOne(
+    () => Product,
+    (product) => product.images,
+    // eslint-disable-next-line prettier/prettier
+    { onDelete: 'CASCADE' },
+  )
   product: Product;
 }

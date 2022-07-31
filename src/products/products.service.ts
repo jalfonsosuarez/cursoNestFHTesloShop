@@ -129,7 +129,11 @@ export class ProductsService {
   async remove(id: string) {
     const product = await this.findOne(id);
     await this.productRepository.remove(product);
-    return product;
+    const { images = [], ...rest } = product;
+    return {
+      ...rest,
+      images: images.map((image) => image.url),
+    };
   }
 
   private handleDBExceptions(error) {
