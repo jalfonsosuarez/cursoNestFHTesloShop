@@ -13,7 +13,9 @@ import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { PaginationDto } from '../common/dtos/pagination.dto';
+import { Auth } from '../auth/decorators';
 @Controller('Products')
+@Auth()
 export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
 
