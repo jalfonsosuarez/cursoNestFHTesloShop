@@ -3,12 +3,24 @@ version: '3'
 services:
   db:
     image: postgres:14.3
+    container_name: teslodb
     restart: always
     ports:
       - "5432:5432"
     environment:
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DN-NAME}
-    container_name: teslodb
     volumes:
       - ./postgres:/var/lib/postgressql/data
+  
+  pgadmin:
+    container_name: teslodb-pgadmin-service-container
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=root@root.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+    ports:
+      - '5050:80'
+
+      
