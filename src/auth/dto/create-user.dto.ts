@@ -1,4 +1,5 @@
 import {
+  IsArray,
   IsEmail,
   IsString,
   Matches,
@@ -23,4 +24,7 @@ export class CreateUserDto {
   @IsString()
   @MinLength(1)
   fullName: string;
+
+  @IsArray()
+  roles?: string[];
 }
